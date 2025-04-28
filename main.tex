@@ -1,0 +1,119 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% abnTeX2: Modelo de Trabalho Acadêmico em conformidade com 
+% as normas da ABNT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[msc,
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,
+	%twoside,			% para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel. 
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil				% o último idioma é o principal do documento
+    ]{Unioeste-abntex2}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Área para adição de pacotes extras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Utilize aqui seu pacote preferido para algoritmos
+\usepackage[linesnumbered]{algorithm2e}
+
+\usepackage{pdfpages} %para incluir a ficha catalografica ou outros pdfs no texto
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Compila o indice
+\makeindex
+
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEMENTOS PRÉ-TEXTUAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pretextual
+
+\titulo{Um Título Qualquer}
+\tituloen{Título da dissertação em inglês}
+\autor{Nome do Autor}
+\orientador{Nome do Orientador}
+\coorientador{Nome do Coorientador} % se houver
+\curso{Programa de Pós-Graduação em Ciência da Computação}
+
+\inserirInformacoesPDF
+
+\imprimircapa
+\imprimirfolhaderosto*
+
+% ---
+% Inserir a ficha bibliografica - OMITIR NA QUALIFICAÇÃO
+% ---
+% gerar em % https://www.unioeste.br/formularios/fichacatalografica/ficha.php
+%
+ \begin{fichacatalografica}
+     \includepdf{Pre_Textual/ficha_catalografica.pdf}
+ \end{fichacatalografica}
+
+\include{Pre_Textual/aprova} %OMITIR NA QUALIFICAÇÃO
+\include{Pre_Textual/Dedicatoria} %OMITIR NA QUALIFICAÇÃO
+\include{Pre_Textual/Agradecimentos} %OMITIR NA QUALIFICAÇÃO
+\include{Pre_Textual/Epigrafe} %OMITIR NA QUALIFICAÇÃO
+\include{Pre_Textual/Resumo}
+
+\renewcommand{\listfigurename}{Lista de figuras}
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*   % Cria a Lista de Figuras
+\cleardoublepage
+%\mostrarlistadeILUSTRACOES
+\mostrarlistadeQUADROS
+\mostrarlistadeTABELAS
+\mostrarlistadeCODIGOS
+ 
+\include{Pre_Textual/Abreviaturas}
+\include{Pre_Textual/Simbolos}
+
+    
+\mostrarSUMARIO
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEMENTOS TEXTUAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\textual
+\include{Conteudo/01_Introducao}
+\include{Conteudo/02_ResultadosComandos}
+\include{Conteudo/03_ConteudoEspecifico}
+\include{Conteudo/04_Customizacao}
+\include{Conteudo/05_Conclusao}
+
+\phantompart
+\bibliography{Bibliografia}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ELEMENTOS PÓS-TEXTUAIS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\postextual
+
+\renewcommand{\chapnumfont}{\chaptitlefont}
+\renewcommand{\afterchapternum}{}
+\include{Pos_Textual/Apendices}
+\include{Pos_Textual/Anexos}
+
+\end{document}

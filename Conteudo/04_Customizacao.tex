@@ -1,0 +1,34 @@
+\chapter{Customização Unioeste}
+
+\section{Lista de códigos}
+
+Usado para criar a lista de códigos, adicionar sintaxe highlight, enumerar as linhas e colorir o fundo, para dar destaque a implementação.
+
+Sintaxe básica:
+\begin{verbatim}
+\begin{codigo}[!htb]
+    \caption{Espaço para o título do código}
+    \label{Espaço para o label do código, para ser usado na referência}  
+    \begin{lstlisting}[language = Linguagem de programação a ser usada]
+        <CÓDIGO>
+    \end{lstlisting}
+\end{codigo}
+\end{verbatim}
+
+\begin{codigo}[h]
+  \caption{Programa hello.c}
+  \label{codigoC}
+    \lstinputlisting[language=c]{Codigos/hello.c}
+\end{codigo}
+
+\begin{codigo}[h]
+  \caption{Programa em Java}
+  \label{codigoJava}
+    \lstinputlisting[language=java]{Codigos/exjava.java}
+\end{codigo}
+
+\begin{codigo}[h]
+  \caption{Programa em Python}
+  \label{codigoPython}
+    \lstinputlisting[language=python]{Codigos/teste.py}
+\end{codigo}
