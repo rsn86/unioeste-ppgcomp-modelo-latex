@@ -60,7 +60,7 @@
 \usepackage{parskip}			  % espaçamento entre os parágrafos
 \usepackage{xcolor}
 \usepackage{url}                  % deve ser carregado para tratar url de forma correta e usado pelo abntex2cite
-\usepackage{breakurl}             % trata de forma correta a quebra de url entre linhas
+\usepackage{xurl}                 % Melhor suporte para quebra de URLs com pdflatex
 \usepackage{listings, lstautogobble}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
